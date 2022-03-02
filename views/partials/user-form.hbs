@@ -1,0 +1,61 @@
+<div class="row">
+
+    <div class="col-8">
+        <div class="row">
+
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                    <input type="first_name" class="form-control" id="floatingInput" placeholder="First Name"
+                        name="first_name" value="{{ this.first_name }}">
+                    <label for="floatingInput">Fist Name</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                    <input type="last_name" class="form-control" id="floatingInput" placeholder="Last Name"
+                        name="last_name" value="{{ this.last_name }}">
+                    <label for="floatingInput">Last Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        name="email" value="{{ this.email }}">
+                    <label for="floatingInput">Email</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                    <input type="phone_number" class="form-control" id="floatingInput" placeholder="Phone number"
+                        name="phone_number" value="{{ this.phone_number }}">
+                    <label for="floatingInput">Phone Number</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-floating mb-3">
+                <textarea type="comments" class="form-control" id="floatingInput" placeholder="Comments" name="comments"
+                    style="height: 160px">{{ this.comments }}</textarea>
+                <label for="floatingInput">Comments</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4">
+        <div class="card" style="width: 16rem;">
+            <img src="/img/default.png" class="card-img-top" alt="...">
+            <div class="attachment-container">
+                <input type="file" name="profile_picture" id="profile_picture" accept="image/*" />
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+</div>

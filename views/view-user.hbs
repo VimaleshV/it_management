@@ -1,0 +1,49 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">User Details</li>
+  </ol>
+</nav>
+
+<div class="view-user p-5">
+
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="#">User Details</a>
+        </li>
+        {{!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li> --}}
+      </ul>
+    </div>
+    <div class="card-body">
+      {{#each rows}}
+        <h5 class="card-title">{{this.first_name}} {{this.last_name}}</h5>
+        <img src="/{{ this.profile_picture }}" style="width: 10rem;" class="card-img-top" alt="..."> <!-- {{this.profile_picture}} -->
+        <h5 class="card-title">{{this.job_title}}</h5>
+        <p class="card-text">{{this.comments}}</p>
+        <p class="card-text">{{this.email}}</p>
+        <p class="card-text">{{this.phone_number}}</p>
+        <p class="card-text">{{this.status}}</p>
+        {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+      {{/each}}
+
+  </div>
+</div>
+    </div>
+  </div>
+
+  {{!-- {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.first_name}} {{this.last_name}}</h3>
+    </div>
+  </div>
+  {{/each}} --}}
+
+</div>
