@@ -3,6 +3,9 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const dashboardController = require('../controllers/dashboardController');
 const eventsController = require('../controllers/eventsController');
+const loginController = require('../controllers/loginController');
+
+router.get('/login', loginController.login);
 
 router.get('/view', userController.view);
 router.post('/view', userController.find);
