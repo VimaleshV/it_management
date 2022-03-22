@@ -4,6 +4,7 @@ const userController = require('../controllers/userController');
 const dashboardController = require('../controllers/dashboardController');
 const eventsController = require('../controllers/eventsController');
 const loginController = require('../controllers/loginController');
+const contactusController = require('../controllers/contactusController');
 
 router.get('/login', loginController.login);
 
@@ -20,6 +21,8 @@ router.get('/viewuser/:id', userController.viewall);
 router.get('/dashboard', dashboardController.dashboard);
 
 router.get('/events', eventsController.events);
+
+router.get('/contactus', contactusController.contactus);
 
 
 // router.get('/:id', userController.delete);
