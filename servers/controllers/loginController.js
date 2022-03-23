@@ -22,3 +22,21 @@ exports.login = (req, res) => {
         res.render('login', { login });
     });
 }
+
+exports.signup = (req, res) => {
+    const { first_name, email, password, confirm_password } = req.body;
+    pool.getConnection((err, connection) => {
+        if(err) throw err;
+    
+        connection.query("insert into user set first_name = ?, password = ?, email = ?",[first_name, password, email], (err, rows) => {
+        connection.release();
+        login = true;
+
+            if(!err){
+                res.render('login', { alert: 'User added succesfully!!!', login});
+            }else{
+                console.log(err);
+            }
+        });
+    });
+}

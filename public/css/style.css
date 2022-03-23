@@ -271,3 +271,21 @@ body{
 .attachment-container {
     padding : 10px;
 }
+
+.btn{
+    width: 85px;
+    height: 34px;
+    outline: none;
+    border: none;
+    /* border-radius: 48px; */
+    background-color: #1d1b31;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin: 10px 0; */
+    transition: all .5s;
+}
+
+.btn:hover {
+    background-color: #444;
+}

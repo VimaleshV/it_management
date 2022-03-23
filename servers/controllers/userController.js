@@ -217,7 +217,7 @@ exports.viewall = (req, res) => {
 }
 
 /** exports.fileupload = (req, res) => {
-    res.render('index');
+    res.render('fileupload');
 }
 
 exports.fileuploadfunc = (req, res) => {

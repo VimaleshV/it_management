@@ -13,7 +13,7 @@
         <div class="forms-container">
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
-                    <h2 class="container-title">Sign-in</h2>
+                    <h2 class="container-title">Sign In</h2>
                     <div class="input-field">
                         <i class="bi bi-person-fill"></i>
                         <input type="text" placeholder="Username" />
@@ -42,21 +42,25 @@
             </div>
 
             <div class="signin-signup">
-                <form action="#" class="sign-up-form">
-                    <h2 class="container-title">Sign-Up</h2>
+                <form action="/signup" method="POST"  class="sign-up-form" encType="multipart/form-data" novalidate>
+                    <h2 class="container-title">Sign Up</h2>
                     <div class="input-field">
                         <i class="bi bi-person-fill"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" name="first_name" placeholder="Username" />
                     </div>
                     <div class="input-field">
                         <i class="bi bi-envelope-fill"></i>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" placeholder="Email" />
                     </div>
                     <div class="input-field">
                         <i class="bi bi-lock-fill"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" />
                     </div>
-                    <input type="submit" class="btn-login" value="Login">
+                     <div class="input-field">
+                        <i class="bi bi-lock-fill"></i>
+                        <input type="Confirm Password" name="confirm_password" placeholder="Confirm Password" />
+                    </div>
+                    <input type="submit" class="btn-login" value="Register">
                     <p class="special-text">Or Sign Up with social platform</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
