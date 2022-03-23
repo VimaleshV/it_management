@@ -1,1 +1,41 @@
-Under development
+<html lang="en">
+<html itemscope itemtype="http://schema.org/Article">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calander</title>
+    <link rel="stylesheet" href="/css/schedule.css">
+</head>
+
+<body>
+    <div class="form">
+        <form action="http://localhost:5000/" method="POST">
+            <a class="button " target="_blank" rel="noopener noreferrer"
+                href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https://www.googleapis.com/auth/calendar.readonly&response_type=code&client_id=1036172841509-2pkku56s7te5bgs1tiv7gqml637plt0v.apps.googleusercontent.com&redirect_uri=http://localhost:5000/schedule">Sign
+                In</a>
+            <span>You need to Sign In first</span><br><br>
+            <label for="token">Paste the copied token here</label>
+            <input name="token" type="text" class="input-text"  placeholder="must be like this Jw65AJg05xiOGmkCld...">
+            <input type="submit" value="Get my events"></input>
+        </form>
+        <hr>
+        <form action="http://localhost:5000/schedule" method="POST">
+            <label for="attendee email">Attendee email</label>
+            <input type="email" name="to" placeholder="send email to...">
+            <label for="event title">Event Title</label>
+            <input type="text" class="input-text" name="summary" placeholder="the title of event...">
+            <label for="body">Event body</label>
+            <input type="text" class="input-text" name="description" placeholder="the message body...">
+            <input type="submit" value="Send Event Invite">
+        </form>
+    </div>
+</body>
+
+<!-- BEGIN Pre-requisites -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+</script>
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+</script>
+<!-- END Pre-requisites -->
+
+</html>
