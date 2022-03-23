@@ -31,5 +31,5 @@ router.post('/schedule', eventsController.schedule);
 router.get('/contactus', contactusController.contactus);
 
 
-// router.get('/:id', userController.delete);
+router.get('/:id', userController.delete);
 module.exports = router;

@@ -28,7 +28,7 @@ exports.view = (req, res) => {
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });
 }
@@ -109,7 +109,7 @@ exports.edit = (req, res) => {
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });
 }
@@ -150,13 +150,13 @@ exports.update = (req, res) => {
                         }else{
                             console.log(err);
                         }
-                        console.log('The data from user table: \n', rows);
+                        //console.log('The data from user table: \n', rows);
                     });
                 });
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });
 }
@@ -174,7 +174,7 @@ exports.delete = (req, res) => {
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });  **/
 
@@ -186,12 +186,12 @@ exports.delete = (req, res) => {
 
             if(!err){
                 let removedUser = encodeURIComponent('User removed succesfully!!');
-                res.redirect('/?removed=' +removedUser);
+                res.redirect('/view/?removed=' +removedUser);
                 // res.redirect('/');
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });
 }
@@ -211,7 +211,7 @@ exports.viewall = (req, res) => {
             }else{
                 console.log(err);
             }
-            console.log('The data from user table: \n', rows);
+            //console.log('The data from user table: \n', rows);
         });
     });
 }
