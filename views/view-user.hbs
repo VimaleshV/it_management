@@ -1,49 +1,109 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/view">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">User Details</li>
-  </ol>
-</nav>
-
-<div class="view-user p-5">
-
-  <div class="card text-center">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="true" href="#">User Details</a>
-        </li>
-        {{!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li> --}}
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="/css/view-user.css">
+    <title>Profile Card</title>
+</head>
+<body>
+   {{#each rows}}
+    <div class="modal">
+        <img src="/{{ this.profile_picture }}" alt="">
+        <div class="close"></div>
     </div>
-    <div class="card-body">
-      {{#each rows}}
-        <h5 class="card-title">{{this.first_name}} {{this.last_name}}</h5>
-        <img src="/{{ this.profile_picture }}" style="width: 10rem;" class="card-img-top" alt="..."> <!-- {{this.profile_picture}} -->
-        <h5 class="card-title">{{this.job_title}}</h5>
-        <p class="card-text">{{this.comments}}</p>
-        <p class="card-text">{{this.email}}</p>
-        <p class="card-text">{{this.phone_number}}</p>
-        <p class="card-text">{{this.status}}</p>
-        {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
-      {{/each}}
+    
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="hamburger-menu">
+                    <div class="center"></div>
+                </div>
+                <a href="#" class="mail">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <div class="main">
+                    <div class="image">
+                        <div class="hover">
+                            <i class="fas fa-camera fa-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="name">{{this.first_name}} {{this.last_name}}</h3>
+                    <h3 class="sub-name">{{this.job_title}}</h3>
+                </div>
+            </div>
 
-  </div>
-</div>
+            <div class="content">
+                <div class="left">
+                    <div class="about-container">
+                        <h3 class="title">About</h3>
+                        <p class="text">{{this.comments}} {{this.comments}} {{this.comments}}</p>
+                        <p class="card-text">{{this.phone_number}}</p>
+                        <p class="card-text">{{this.status}}</p>
+                    </div>
+                    <div class="icons-container">
+                        <a href="#" class="icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="buttons-wrap">
+                        <div class="follow-wrap">
+                            <a href="#" class="follow">Follow</a>
+                        </div>
+                        <div class="share-wrap">
+                            <a href="#" class="share">Share</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div>
+                        <h3 class="number">91</h3>
+                        <h3 class="number-title">Posts</h3>
+                    </div>
+                    <div>
+                        <h3 class="number">2.4K</h3>
+                        <h3 class="number-title">Following</h3>
+                    </div>
+                    <div>
+                        <h3 class="number">4.7K</h3>
+                        <h3 class="number-title">Followers</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+     {{/each}}
+</body>
+<script>
+  const image = document.querySelector('.image');
+  const hover = document.querySelector('.hover');
+  const modal = document.querySelector('.modal');
+  const close = document.querySelector('.close');
 
-  {{!-- {{#each rows}}
-  <div class="row mb-5">
-    <div class="col text-center">
-      <h3>{{this.first_name}} {{this.last_name}}</h3>
-    </div>
-  </div>
-  {{/each}} --}}
+  function show(){
+      hover.classList.add('active');
+      modal.classList.add('show');
+  }
 
-</div>
+  function hide(){
+      hover.classList.remove('active');
+      modal.classList.remove('show');
+  }
+
+  image.addEventListener('click', show);
+  close.addEventListener('click', hide);
+</script>
+</html>

@@ -1,3 +1,5 @@
+const db = require('../../utility/dbUtiltiy');
+
 const mysql = require('mysql');
 
 //mysql connection configuration
@@ -13,24 +15,21 @@ const pool = mysql.createPool({
 const profile_image = 'default.png';
 
 // view page for user details page
-exports.view = (req, res) => {
-    pool.getConnection((err, connection) => {
-        if(err) throw err;
+exports.view = async(req, res) => {
+    try{
 
-        console.log('Connected as ID '+ connection.threadId);
+        var userListQry = await db.getDbResults("SELECT * from user where status = 'active'");
 
-        connection.query("SELECT * from user where status='active'", (err, rows) => {
-            connection.release();
+        if(userListQry.success){
+            userListRes = userListQry.results;
+        }
 
-            if(!err){
-                let removedUser = req.query.removed;
-                res.render('home', { rows, removedUser });
-            }else{
-                console.log(err);
-            }
-            //console.log('The data from user table: \n', rows);
-        });
-    });
+        res.render('home', { rows : userListRes }); 
+
+    }catch(err){
+        console.log(err);
+        res.render('home');
+    }   
 }
 
 //search values based on the data value
@@ -53,7 +52,7 @@ exports.find = (req, res) => {
     });
 }
 
-exports.form = (req, res) => {
+exports.form = async(req, res) => {
     res.render('add-user');
 }
 
@@ -125,7 +124,7 @@ exports.update = (req, res) => {
             let uploadPath;
         
             if(!req.files || Object.keys(req.files).length ==0){
-                console,log('No files were uploaded');
+                console.log('No files were uploaded');
             }
         
             profile_picture = req.files.profile_picture;
@@ -196,24 +195,22 @@ exports.delete = (req, res) => {
     });
 }
 
-// user list page api
-exports.viewall = (req, res) => {
-    pool.getConnection((err, connection) => {
-        if(err) throw err;
+exports.viewall = async(req, res) => {
+    try{
+        const { id } = req.body;
 
-        console.log('Connected as ID '+ connection.threadId);
+        var viewAllQry = await db.getDbResults("SELECT * from user where id = id");
 
-        connection.query("SELECT * from user where id = ?", [req.params.id], (err, rows) => {
-            connection.release();
+        if(viewAllQry.success){
+            viewAllRes = viewAllQry.results;
+        }
 
-            if(!err){
-                res.render('view-user', { rows });
-            }else{
-                console.log(err);
-            }
-            //console.log('The data from user table: \n', rows);
-        });
-    });
+        res.render('view-user', { viewAllRes });
+
+    }catch(err){
+        console.log(err);
+    }
+    
 }
 
 /** exports.fileupload = (req, res) => {
@@ -239,3 +236,25 @@ exports.fileuploadfunc = (req, res) => {
 
    });
 } **/
+
+exports.newuser = async(req, res) => {
+        res.render('new-user');
+}
+
+exports.onboarding = async(req, res) => {
+    try{
+        const {  user_id, username, dob, phone, email, address, city, country, exp_years, ex_company_name, ex_startDate, ex_endDate, ex_hrname, ex_hrno, sslc_name, sslc_year, sslc_percentage, hsc_name, hsc_year, hsc_percentage, ugClg_name, ugDept_name, ug_year, ug_percentage, pgClg_name, pgDept_name, pg_year, pg_percentage } = req.body;
+
+        var userDetailQry = await db.getDbResults("INSERT INTO user_detail (user_id, username, dob, phone, email, address, city, country, exp_years, ex_company_name, ex_startDate, ex_endDate, ex_hrname, ex_hrno, sslc_name, sslc_year, sslc_percentage, hsc_name, hsc_year, hsc_percentage, ugClg_name, ugDept_name, ug_year, ug_percentage, pgClg_name, pgDept_name, pg_year, pg_percentage) values (1, username, dob, phone, email, address, city, country, exp_years, ex_company_name, ex_startDate, ex_endDate, ex_hrname, ex_hrno, sslc_name, sslc_year, sslc_percentage, hsc_name, hsc_year, hsc_percentage, ugClg_name, ugDept_name, ug_year, ug_percentage, pgClg_name, pgDept_name, pg_year, pg_percentage)");
+
+        if(userDetailQry.success){
+            userDetailRes = userDetailQry.results;
+        }
+
+        res.render('homepage'); 
+
+    }catch(err){
+        console.log(err);
+        res.render('homepage');
+    }   
+}

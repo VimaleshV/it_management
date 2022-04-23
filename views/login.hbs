@@ -12,15 +12,21 @@
     <div class="main-container" id="main-container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form action="/signin" method="POST" class="sign-in-form"  name="sign-in-form" autocomplete="off">
+                {{#if signin_alert}}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{signin_alert}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{/if}}
                     <h2 class="container-title">Sign In</h2>
                     <div class="input-field">
-                        <i class="bi bi-person-fill"></i>
-                        <input type="text" placeholder="Username" />
+                        <i class="bi bi-envelope-fill"></i>
+                        <input type="text" name="signInEmail" placeholder="Email" />
                     </div>
                     <div class="input-field">
                         <i class="bi bi-lock-fill"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="signInPassword" placeholder="Password" />
                     </div>
                     <input type="submit" class="btn-login" value="Login">
                     <p class="special-text">Or Sign in with social platform</p>
@@ -42,7 +48,13 @@
             </div>
 
             <div class="signin-signup">
-                <form action="/signup" method="POST"  class="sign-up-form" encType="multipart/form-data" novalidate>
+                <form action="/signup" method="POST"  class="sign-up-form" name="sign-up-form" encType="multipart/form-data" novalidate>
+                {{#if signup_alert}}
+                <div class="alert alert-{{danger_flag}} alert-dismissible fade show" role="alert">
+                    {{signup_alert}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{/if}}
                     <h2 class="container-title">Sign Up</h2>
                     <div class="input-field">
                         <i class="bi bi-person-fill"></i>

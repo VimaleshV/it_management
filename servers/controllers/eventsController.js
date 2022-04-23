@@ -17,22 +17,6 @@ exports.events = (req, res) => {
         
         res.render('events-view');
 
-
-
-
-        // console.log('Connected as ID '+ connection.threadId);
-
-        // connection.query("SELECT * from user where status='active'", (err, rows) => {
-        //     connection.release();
-
-        //     if(!err){
-        //         let removedUser = req.query.removed;
-        //         res.render('home', { rows, removedUser });
-        //     }else{
-        //         console.log(err);
-        //     }
-        //     console.log('The data from user table: \n', rows);
-        // });
     });
 }
 

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/onboard.css">
+    <script src="script.js" defer></script>
+    <title>Onboarding Process</title>
+    <style>
+        
+    </style>
+  </head>
+  <body>
+    {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <form action="/onboarding" class="form" method="POST" >
+      <h1 class="text-center">Onboarding Process</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="Personal"
+        ></div>
+        <div class="progress-step" data-title="Professional"></div>
+        <div class="progress-step" data-title="Educational"></div>
+        <div class="progress-step" data-title="Terms"></div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active" novalidate>
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" required />
+        </div>
+         <div class="input-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" name="dob" id="dob" />
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input type="text" name="phone" id="phone" />
+        </div>
+        <div class="input-group">
+          <label for="email">Personal Email</label>
+          <input type="text" name="email" id="email" />
+        </div>
+        <div class="input-group">
+          <label for="address">Address</label>
+          <input type="text" name="address" id="address" />
+        </div>
+        <div class="input-group">
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" />
+        </div>
+        <div class="input-group">
+          <label for="country">Country</label>
+          <input type="text" name="country" id="country" />
+        </div>
+        <div class="">
+          <a href="#" class="new-btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <label for="exp_years">Year of Experience</label>
+          <input type="text" name="exp_years" id="exp_years" />
+        </div>
+        <div class="input-group">
+          <label for="ex_company_name">Previous Employeer name</label>
+          <input type="text" name="ex_company_name" id="ex_company_name" />
+        </div>
+        <div class="input-group">
+          <label for="ex_startDate">Employment Start Date</label>
+          <input type="date" name="ex_startDate" id="ex_startDate" />
+        </div>
+        <div class="input-group">
+          <label for="ex_endDate">Employment End Date</label>
+          <input type="date" name="ex_endDate" id="ex_endDate" />
+        </div>
+        <div class="input-group">
+          <label for="ex_hrname">Previous Company HR name (for verfication)</label>
+          <input type="text" name="ex_hrname" id="ex_hrname" />
+        </div>
+        <div class="input-group">
+          <label for="ex_hrno">Previous Company HR phone (for verfication)</label>
+          <input type="text" name="ex_hrno" id="ex_hrno" />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="new-btn btn-prev">Previous</a>
+          <a href="#" class="new-btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <label for="sslc_name">SSLC school name</label>
+          <input type="text" name="sslc_name" id="sslc_name" />
+        </div>
+        <div class="input-group">
+          <label for="sslc_year">SSLC Year of passing</label>
+          <input type="number" name="sslc_year" id="sslc_year" />
+        </div>
+        <div class="input-group">
+          <label for="sslc_percentage">SSLC Percentage</label>
+          <input type="number" name="sslc_percentage" id="sslc_percentage" />
+        </div>
+        <div class="input-group">
+          <label for="hsc_name">HSC school name</label>
+          <input type="text" name="hsc_name" id="hsc_name" />
+        </div>
+        <div class="input-group">
+          <label for="hsc_year">HSC Year of passing</label>
+          <input type="number" name="hsc_year" id="hsc_year" />
+        </div>
+        <div class="input-group">
+          <label for="hsc_percentage">HSC Percentage</label>
+          <input type="number" name="hsc_percentage" id="hsc_percentage" />
+        </div>
+        <div class="input-group">
+          <label for="ugClg_name">UG College name</label>
+          <input type="text" name="ugClg_name" id="ugClg_name" />
+        </div>
+        <div class="input-group">
+          <label for="ugDept_name">UG Department name</label>
+          <input type="text" name="ugDept_name" id="ugDept_name" />
+        </div>
+        <div class="input-group">UG Year of passing</label>
+          <input type="number" name="ug_year" id="ug_year" />
+        </div>
+        <div class="input-group">
+          <label for="ug_percentage">UG Percentage</label>
+          <input type="number" name="ug_percentage" id="ug_percentage" />
+        </div>
+        <div class="input-group">
+          <label for="pgClg_name">PG College name</label>
+          <input type="text" name="pgClg_name" id="pgClg_name" />
+        </div>
+        <div class="input-group">
+          <label for="pgDept_name">PG Department name</label>
+          <input type="text" name="pgDept_name" id="pgDept_name" />
+        </div>
+        <div class="input-group">PG Year of passing</label>
+          <input type="number" name="pg_year" id="pg_year" />
+        </div>
+        <div class="input-group">
+          <label for="pg_percentage">PG Percentage</label>
+          <input type="number" name="pg_percentage" id="ug_percentage" />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="new-btn btn-prev">Previous</a>
+          <a href="#" class="new-btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+         <input id="checkbox" class="tacinput" type="checkbox" />
+         <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="new-btn btn-prev">Previous</a>
+          <input type="submit" value="Submit" class="new-btn" />
+        </div>
+      </div>
+    </form>
+<script>
+
+const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
+
+let formStepsNum = 0;
+
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum++;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+function updateFormSteps() {
+  formSteps.forEach((formStep) => {
+    formStep.classList.contains("form-step-active") &&
+      formStep.classList.remove("form-step-active");
+  });
+
+  formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressbar() {
+  progressSteps.forEach((progressStep, idx) => {
+    if (idx < formStepsNum + 1) {
+      progressStep.classList.add("progress-step-active");
+    } else {
+      progressStep.classList.remove("progress-step-active");
+    }
+  });
+
+  const progressActive = document.querySelectorAll(".progress-step-active");
+
+  progress.style.width = ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+}
+    </script>
+  </body>
+</html>

@@ -44,7 +44,7 @@
     {{#if login}}
         {{{body}}}
     {{else}}
-    <div class="sidebar">
+    <div class="sidebar active">
         <div class="logo_content">
             <div class="logo">
                 <i class="bi bi-fingerprint"></i>
@@ -52,6 +52,8 @@
             </div>
             <i class="bi bi-list" id="bi-list"></i>
         </div>
+
+        {{#each myInfo}}
         <ul class="nav_list">
             <li>
                 <i class="bi bi-search" id="bi-search"></i>
@@ -59,10 +61,16 @@
                 <span class="tooltip">Search</span>
             </li>
             <li>
-                <a href="#"><i class="bi bi-house"></i>
+                <a href="/homepage"><i class="bi bi-house"></i>
                     <span class="link_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
+            </li>
+             <li>
+                <a href="/newuser"><i class="bi bi-plus-square"></i>
+                    <span class="link_name">Onboarding</span>
+                </a>
+                <span class="tooltip">Onboarding</span>
             </li>
             <li>
                 <a href="/dashboard"><i class="bi bi-bar-chart"></i>
@@ -88,37 +96,44 @@
                 </a>
                 <span class="tooltip">Event Schedule</span>
             </li>
+            {{#if this.is_hr}}
             <li>
-                <a href="#"><i class="bi bi-file-earmark-break"></i>
-                    <span class="link_name">File upload</span>
+                <a href="/payslipHtml"><i class="bi bi-file-earmark-break"></i>
+                    <span class="link_name">File</span>
                 </a>
                 <span class="tooltip">File</span>
             </li>
+            {{/if}}
             <li>
                 <a href="/contactus"><i class="bi bi-telephone"></i>
                     <span class="link_name">Contact Us</span>
                 </a>
                 <span class="tooltip">Contact Us</span>
             </li>
+            {{#if this.is_admin}}
             <li>
                 <a href="#"><i class="bi bi-gear"></i>
                     <span class="link_name">Settings</span>
                 </a>
                 <span class="tooltip">Settings</span>
             </li>
+            {{/if}}
         </ul>
+
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_detial">
-                    <img src="/img/default.png" alt="">
+                    <img src="/{{ this.profile_picture }}" alt="">
                     <div class="name_job">
-                        <div class="name">Super Admin</div>
-                        <div class="job">Web Developer</div>
+                        <div class="name">{{this.first_name}} {{this.last_name}}</div>
+                        <div class="job">{{this.job_title}}</div>
                     </div>
                 </div>
-                <i class="bi bi-box-arrow-left" id="log_out"></i>
+                <a style="color:white" href="/logout"><i class="bi bi-box-arrow-left" id="log_out"></i>
+                </a>
             </div>
         </div>
+        {{/each}}
     </div>
     <div class="home_content">
         <div class="container pt-5 pb-5">

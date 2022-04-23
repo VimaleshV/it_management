@@ -1,10 +1,6 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const db = require('../../utility/dbUtiltiy');
-const cookieParser = require("cookie-parser");
-const sessions = require('express-session');
-
-var session;
 
 //mysql connection configuration
 const pool = mysql.createPool({
@@ -88,17 +84,17 @@ exports.signin = (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err;
 
-        session = req.session;
-        // session.signInEmail=req.body.signInEmail;
-
         connection.query("SELECT * from user where status='active' and email = ? and password = ? ", [signInEmail, signInPassword], (err, rows) => {
 
             connection.release();
             if(!err && rows.length != 0){
 
-                req.session.myInfo = rows;
-                // console.log(req.session);
-                res.redirect('/homepage');
+                const id = rows[0].id;
+                const token = jwt.sign({id}, "jwtSecret", {
+                    expiresIn : 300,
+                })
+                req.session = rows;
+                res.render('homepage', {auth: true, token: token, rows});
             }else{
                 login = true;
                 res.render('login', { signin_alert: 'Please check Email and Password!!!', login});
@@ -113,7 +109,6 @@ exports.logout = (req, res) => {
         if(err) throw err;
 
         login = true;
-        req.session.destroy();
         res.render('login', { login });
     });
 }

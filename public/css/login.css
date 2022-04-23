@@ -110,7 +110,7 @@ body{
 
 .social-media{
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .social-icon{
@@ -139,16 +139,17 @@ body{
     transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: 1fr;
-    z-index: 5;
+    z-index: 9999;
 }
 
 form.sign-in-form{
     z-index: 2;
+    display: block;
 }
 
 form.sign-up-form{
     z-index: 1;
-    opacity: 0;
+    display: none;
 }
 
 .signin-up-image{
@@ -247,10 +248,10 @@ form.sign-up-form{
 
 .main-container.sign-up-mode form.sign-in-form{
     z-index: 1;
-    opacity: 0;
+    display: none;
 }
 
 .main-container.sign-up-mode form.sign-up-form{
     z-index: 2;
-    opacity: 1;
+    display: block;
 }
